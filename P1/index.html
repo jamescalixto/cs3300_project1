@@ -159,6 +159,7 @@ graph
 
 
 //loop to add song 
+/*
 songData.forEach(function(d){
   graph.append("circle")
     .attr("cx", rank(d.rank))
@@ -166,6 +167,18 @@ songData.forEach(function(d){
     .attr("r", radSize(d.loudness))
     .style("opacity", .35);
 });
+*/
+
+songData.forEach(function(d){
+    graph.append("svg:image")
+    .attr("x", rank(d.rank))
+    .attr("y", count(d.energy))
+    .attr("width", radSize(d.loudness))
+    .attr("height", radSize(d.loudness))
+    .attr("xlink:href", "MusicNote.png")
+    .style("opacity", .35)
+});
+
 //Labels
 graph.append("text")
     .attr("x", 0)
